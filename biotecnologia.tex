@@ -1,8 +1,80 @@
-\documentclass{article}
+\documentclass[11pt]{article}
+\usepackage[spanish,USenglish,es-tabla]{babel}
+\setlength{\parskip}{1em}
+\usepackage[dvipsnames]{xcolor}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
-\usepackage[margin=2.54cm]{geometry}
+\usepackage{amssymb,amsmath} % (librería  desímbolos)
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{subfigure} % subfiguras
+\usepackage[papersize={216mm,279mm},lmargin=2cm,rmargin=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{tcolorbox}
+\usepackage{float} %aquete para mejorar la posición de flotantes
+\usepackage{caption} % para referencias
+\usepackage{ragged2e}
+\usepackage{mathptmx}
+\usepackage{makeidx}
+\usepackage{xparse}
+\usepackage{blindtext}
+\usepackage{longtable,multirow,booktabs}
+\usepackage{hyperref}
+
+\definecolor{color1}{RGB}{232, 247, 250} % Color of the article title and sections
+\definecolor{color2}{RGB}{0,20,20} % Color of the boxes behind the abstract and headings
+
+\newtcolorbox{mybox}[2][]{colbacktitle=red!10!white, colback=blue!10!white,coltitle=red!70!black,
+title={#2},fonttitle=\bfseries,#1}
+
+\renewcommand*\thesection{\arabic{section}}
+\usepackage[explicit]{titlesec}
+\definecolor{myBlue}{HTML}{0088FF}
+
+\titleformat{\section}[hang]{\Large\bfseries\sffamily}%
+{\rlap{\color{myBlue}\rule[-6pt]{8.5cm}{1.2pt}}\colorbox{myBlue}{%
+           \raisebox{0pt}[13pt][3pt]{ \makebox[20pt]{% height, width
+                \fontfamily{phv}\selectfont\color{white}{\thesection}}
+            }}}%
+{15pt}%
+{ \color{myBlue}#1
+%
+}
+\titlespacing*{\section}{0pt}{3mm}{5mm}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.0mm}
+
+
+\newtcolorbox{boxtext}[1]{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=#1}
+
+\rfoot{\colorbox{color1}{\thepage \hspace{1pt} {\bf{/}} \pageref{LastPage}}}
+\cfoot{\colorbox{color1}{C.A. Salvador Jiménez R.}}
+\lfoot{\colorbox{color1}{Writing Report}}
+
+
 \begin{document}
+
+\rule{\linewidth}{0.2mm}
+\parbox{5cm}{
+\includegraphics[scale=0.1]{https://aula.untrm.edu.pe/pluginfile.php/1/theme_moove/logo/1703941048/Sin%20t%C3%ADtulo-1.png} 
+}\parbox{14cm}{ 
+\centering
+{\large \bf Quantum Chemitry Approach to Chemical Concepts and Atomic Properties} \\ Written Report }
+
+\noindent {\bf{Student:}} Jiménez Rosas Carlos Alberto Salvador \hfill {\bf{Date:}} November 23, 2022
+\rule{\linewidth}{0.1mm}
+
+\begin{mybox}[detach title,before upper={\tcbtitle\quad}]{ABSTRAC:}
+A series of molecules that contain a ligand and a metallic center are proposed, which we know in advance will generate high electric current flows, consequently high induced magnetic fields ($\vec{B}_{induced}$), making the calculations with DFT with and no empirical dispersion. Changes in displacement will be evaluated through $^1$H - NMR titrations, to establish the displacement-concentration relationship.  \\
+\dotfill \\
+{\bf{ Keywords: Chemical shift, $^1$H-NMR, Magnetic field, electric current flow.}}
+\end{mybox}
+
+\begin{multicols}{2}
+    
 
 \section{Introducción}
 
@@ -10,41 +82,44 @@
 - Antecedentes históricos y contexto actual
 - Objetivos y alcance de la monografía
 
-\section{Capítulo 1: Fundamentos de la ingeniería genética en plantas}
+\section{Fundamentos de la ingeniería genética en plantas}
 
 - Conceptos básicos de genética y biotecnología
 - Técnicas de modificación genética: PCR, ADN recombinante, etc.
 - Vectores y métodos de transformación genética
-Capítulo 2: Aplicaciones de los OGM en plantas
+\section{Aplicaciones de los OGM en plantas}
 - Mejora de la productividad y resistencia a enfermedades
 - Tolerancia a herbicidas y pesticidas
 - Mejora de la calidad nutricional y valor agregado
 - Ejemplos de cultivos modificados: maíz, soja, algodón, etc.
-Capítulo 3: Beneficios y ventajas de los OGM
+\section{Beneficios y ventajas de los OGM}
 - Mayor eficiencia y productividad en la agricultura
 - Reducción del uso de pesticidas y herbicidas
 - Mejora de la seguridad alimentaria y nutricional
 - Oportunidades económicas y sociales
-Capítulo 4: Controversias y riesgos asociados a los OGM
+\section{Controversias y riesgos asociados a los OGM}
 - Preocupaciones sobre la seguridad alimentaria y salud humana
 - Impacto ambiental y biodiversidad
 - Regulación y etiquetado de productos OGM
 - Debate ético y social
-Capítulo 5: Regulación y política de los OGM
+\section{Regulación y política de los OGM}
 - Marco regulatorio internacional y nacional
 - Agencias reguladoras y organismos de control
 - Políticas y leyes relacionadas con los OGM
-Capítulo 6: Futuro y perspectivas de los OGM
+\section{Futuro y perspectivas de los OGM}
 - Avances tecnológicos y innovaciones
 - Desafíos y oportunidades en la agricultura sostenible
 - Rol de los OGM en la seguridad alimentaria global
-Conclusión
+\section{Conclusión}
 - Resumen de los principales puntos
 - Reflexión sobre los beneficios y desafíos de los OGM
 - Recomendaciones para futuras investigaciones y políticas
-Referencias
+
+\end{multicols}
+
+\section{Referencias}
 - Lista de fuentes consultadas y citadas en la monografía
-Apéndices
+\section{Apéndices}
 - Información adicional que no se incluyó en el cuerpo de la monografía (por ejemplo, tablas, gráficos, protocolos de laboratorio)
 
 Recuerda que esta estructura es solo una guía y puede variar según tus necesidades y objetivos específicos. ¡Buena suerte con tu monografía!
